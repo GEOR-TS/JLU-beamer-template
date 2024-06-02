@@ -1,0 +1,256 @@
+\documentclass{beamer}
+\usepackage{amsfonts,amsmath,oldgerm,mathrsfs,booktabs}
+\usetheme{sintef}
+\usepackage{xeCJK}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{setspace}
+
+\newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+
+\usefonttheme[onlymath]{serif}
+
+\titlebackground*{assets/JLU_math_background.png}
+
+\newcommand{\hrefcol}[2]{\textcolor{cyan}{\href{#1}{#2}}}
+% \theoremstyle{definition} \newtheorem{definition}{Definition}
+
+
+\theoremstyle{definition} \newtheorem{thm}{定理}[section]
+\theoremstyle{definition} \newtheorem{lem}[thm]{引理}
+\theoremstyle{definition} \newtheorem{prop}[thm]{命题}
+\theoremstyle{definition} \newtheorem{coro}{推论}[thm]
+\theoremstyle{definition} \newtheorem{df}[thm]{定义}
+
+
+
+\title{标题}
+\subtitle{小标题}
+\author{报告人}
+\insti{xx大学}
+\supervisor{xxx教授}
+\date{xxxx年x月x日}
+% \course{}
+% \IDnumber{1234567}
+
+
+
+
+\begin{document}
+\maketitle
+
+\onehalfspacing
+\setlength{\parindent}{2em}
+
+\allowdisplaybreaks[4]
+
+\begin{frame}
+
+This template is a based on \hrefcol{https://www.overleaf.com/latex/templates/xiang-gang-zhong-wen-da-xue-zhong-wen-mo-ban-cuhk-beamer-template/bpgghjpjkqxw}{beamer template adapted for Chinese University of Hong Kong (CUHK)} from \hrefcol{https://richardfury.github.io/}{Rui HU} which is based on \hrefcol{https://www.overleaf.com/latex/templates/sintef-presentation/jhbhdffczpnx}{SINTEF Presentation} from \hrefcol{mailto:federico.zenith@sintef.no}{Federico Zenith} and its derivation \hrefcol{https://github.com/TOB-KNPOB/Beamer-LaTeX-Themes}{Beamer-LaTeX-Themes} from Liu Qilong.  该模版基于\hrefcol{https://richardfury.github.io/}{Rui HU}所做的\hrefcol{https://www.overleaf.com/latex/templates/xiang-gang-zhong-wen-da-xue-zhong-wen-mo-ban-cuhk-beamer-template/bpgghjpjkqxw}{香港中文大学beamer模板}改编而成, 并源于\hrefcol{mailto:federico.zenith@sintef.no}{Federico Zenith}的\hrefcol{https://www.overleaf.com/latex/templates/sintef-presentation/jhbhdffczpnx}{SINTEF Presentation }模板以及Liu Qilong由它改编的模板\hrefcol{https://github.com/TOB-KNPOB/Beamer-LaTeX-Themes}{Beamer-LaTeX-Themes}.
+
+\vspace{\baselineskip}
+This JLU style beamer template is adapted by \hrefcol{https://GEOR-TS.github.io/}{Junyan Ye}. 该JLU版的beamer模板由作者\hrefcol{https://GEOR-TS.github.io/}{Junyan Ye}改编而成.
+
+\vspace{\baselineskip}
+
+由于该模板改编的主要目的是为了本科毕业论文答辩, 实在找不到太合适的模板, 因此根据自己比较喜欢的模板\hrefcol{https://www.overleaf.com/latex/templates/xiang-gang-zhong-wen-da-xue-zhong-wen-mo-ban-cuhk-beamer-template/bpgghjpjkqxw}{beamer template adapted for Chinese University of Hong Kong (CUHK)}改编了一个, 并希望分享给所有需要答辩的JLUer. 该模板制作比较急, 因此许多基于原模板\hrefcol{https://www.overleaf.com/latex/templates/xiang-gang-zhong-wen-da-xue-zhong-wen-mo-ban-cuhk-beamer-template/bpgghjpjkqxw}{beamer template adapted for Chinese University of Hong Kong (CUHK)}的功能并未发掘和改编, 请大家见谅, 若想继续发掘有意思的功能(如chapter slide以及色块等)可参考\hrefcol{https://www.overleaf.com/latex/templates/xiang-gang-zhong-wen-da-xue-zhong-wen-mo-ban-cuhk-beamer-template/bpgghjpjkqxw}{beamer template adapted for Chinese University of Hong Kong (CUHK)}中的教程.
+
+接下来将简单介绍如何使用该beamer模板.
+
+% This template is released under \hrefcol{https://creativecommons.org/licenses/by-nc/4.0/legalcode}{Creative Commons CC BY 4.0} license
+
+\end{frame}
+
+
+\section{如何制作幻灯片}
+
+\begin{frame}[fragile]{封面}
+
+在该文件的开头的以下代码进行修改得到想要的封面:
+\begin{block}{封面代码}
+\begin{verbatim}
+\title{标题}
+\subtitle{小标题}
+\author{报告人}
+\insti{xx大学}
+\supervisor{xxx教授}
+\date{xxxx年x月x日}
+\end{verbatim}
+\end{block}
+\noindent 然后在\verb|\begin{document}|后加入代码\verb|\maketitle|来显示封面.
+
+若打算改变封面右下角的院徽/校徽, 可去设计工具用相同大小和颜色的画布加上想改成的院徽/校徽(我这里用的数学学院院徽), 然后在\verb|\begin{document}|前利用代码\verb|\titlebackground*|把图片的路径加进来即可.
+    
+\end{frame}
+
+\begin{frame}[fragile]{制作第一张幻灯片}
+\framesubtitle{非常容易}
+我们的beamer模板是基于\texttt{sintef}主题制作的, 最简单的幻灯片制作如下即可(在\verb|\begin{document}|和\verb|\end{document}|之间):
+\begin{block}{最简单的幻灯片制作}
+\verb|\begin{frame}{标题}|\\
+\verb|\framesubtitle{小标题} %可加可不加, 不加则以所在section为小标题 | \\
+\verb|这是最简单的一张幻灯片制作| \\
+\verb|\end{frame}|\\
+\end{block}
+\end{frame}
+
+\section{如何加入定理定义等模块}
+
+\begin{frame}[fragile]{定理}
+中文定理模块可由以下代码生成
+\begin{block}{定理块}
+\begin{verbatim}
+    \begin{thm}
+    若$A=B$, $B=C$, 则
+    \begin{equation}
+    A=C .
+    \end{equation}
+    \end{thm}
+\end{verbatim}
+\end{block}
+\noindent 显示如下:
+\begin{thm}
+    若$A=B$, $B=C$, 则
+    \begin{equation}
+    A=C .
+    \end{equation}
+\end{thm}
+
+\end{frame}
+
+\begin{frame}[fragile]{定义}
+中文定义模块可由以下代码生成
+\begin{block}{定义块}
+\begin{verbatim}
+    \begin{df}
+    若$C=A+B$, 则称$C$为$A$与$B$的和.
+    \end{df}
+\end{verbatim}
+\end{block}
+\noindent 显示如下:
+\begin{df}
+    若$C=A+B$, 则称$C$为$A$与$B$的和.
+\end{df}
+
+\end{frame}
+
+\begin{frame}[fragile]{引理}
+    中文引理模块可由以下代码生成
+\begin{block}{引理块}
+\begin{verbatim}
+    \begin{lem}
+    $A,B$可积.
+    \end{lem}
+\end{verbatim}
+\end{block}
+\noindent 显示如下:
+\begin{lem}
+    $A,B$可积.
+\end{lem}
+
+\end{frame}
+
+\begin{frame}[fragile]{命题}
+    中文命题模块可由以下代码生成
+\begin{block}{命题块}
+\begin{verbatim}
+    \begin{prop}
+    $A$可积, 则$B$可积.
+    \end{prop}
+\end{verbatim}
+\end{block}
+\noindent 显示如下:
+\begin{prop}
+    $A$可积, 则$B$可积.
+\end{prop}
+
+\end{frame}
+
+\begin{frame}[fragile]{推论}
+    中文推论模块可由以下代码生成
+\begin{block}{推论块}
+\begin{verbatim}
+    \begin{coro}
+    $A$可积, 则$B$不可积.
+    \end{coro}
+\end{verbatim}
+\end{block}
+\noindent 显示如下:
+\begin{coro}
+    $A$可积, 则$B$不可积.
+\end{coro}
+
+\end{frame}
+
+\section{插图, 表格}
+
+\begin{frame}[fragile]{插图}
+我们可以用以下代码进行插图
+\begin{block}{推论块}
+\begin{verbatim}
+    \begin{figure}[H]
+            \centering %让图片居中
+            \includegraphics[width=3cm,height=3cm]{assets/JLU_logo_1.png}
+            %设置图片格式和图片名（如果文档和图片不在一个文件夹下，需要给出图片路径）
+    \end{figure}
+\end{verbatim}
+\end{block}
+\begin{figure}[H]
+            \centering %让图片居中
+            \includegraphics[width=3cm,height=3cm]{assets/JLU_logo_1.png}
+\end{figure}
+    
+\end{frame}
+
+\begin{frame}[fragile]{表格}
+我们可以用以下代码制表
+\begin{block}{表格块}
+\begin{verbatim}
+\begin{table}[H] \caption{标题} \resizebox{0.3\columnwidth}{!}{ \begin{tabular}{ccccccccc}
+\toprule
+第一列   & 第二列    & 第三列 & 第四列   \\
+\midrule
+$1$ & $2$  & $3$ & $4$    \\
+\bottomrule
+\end{tabular} } % \resizebox只是用于缩放表格, 视情况可删\end{table}
+\end{verbatim}
+\end{block}
+
+\begin{table}[H]
+	\caption{标题}
+    \resizebox{0.3\columnwidth}{!}{
+	\begin{tabular}{ccccccccc}
+		\toprule
+		第一列   & 第二列    & 第三列 & 第四列   \\
+		\midrule
+		$1$ & $2$  & $3$ & $4$    \\
+		\bottomrule
+	\end{tabular}
+ }
+\end{table}
+
+\end{frame}
+
+\section{引用}
+
+\begin{frame}[fragile]{如何引用}
+    直接用代码\verb|\cite{}|引用即可, 例如\cite{bagla2005cosmological}.
+    
+\end{frame}
+
+\section{结尾}
+\begin{frame}[fragile]{设置结尾页}
+在\verb|\end{document}|前输入\verb|\backmatter|即可, 具体结尾页语句可在\texttt{beamerthemesintef.sty}文件对应处进行修改.
+    
+\end{frame}
+
+\section{参考文献}
+
+\begin{frame}[allowframebreaks]{参考文献}
+\tiny
+\bibliographystyle{apalike}
+\bibliography{bibliography}
+\end{frame}
+
+\backmatter
+\end{document}
